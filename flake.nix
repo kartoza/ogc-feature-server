@@ -23,9 +23,19 @@
             pythonEnv
             curl
             jq
+            hurl
+            gdal
+            proj
+            geos
+            sqlite
+            gcc
+            stdenv.cc.cc.lib
           ];
           
           shellHook = ''
+            export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.geos}/lib:${pkgs.proj}/lib:${pkgs.gdal}/lib:$LD_LIBRARY_PATH"
+            export GDAL_DATA="${pkgs.gdal}/share/gdal"
+            export PROJ_LIB="${pkgs.proj}/share/proj"
             echo "OGC Features API development environment"
             echo "Virtual environment will be managed by direnv"
             echo "Available commands:"
@@ -52,6 +62,23 @@
             EOF
             chmod +x $out/bin/ogc-feature-server
           '';
+        };
+        
+        packages.test = pkgs.writeShellScriptBin "ogc-api-test" ''
+          echo "🧪 Testing OGC Features API with Hurl"
+          echo "Make sure the server is running on http://localhost:5000"
+          echo ""
+          ${pkgs.hurl}/bin/hurl --test ${./tests/ogc-api-tests.hurl}
+        '';
+        
+        apps.default = {
+          type = "app";
+          program = "${self.packages.${system}.default}/bin/ogc-feature-server";
+        };
+        
+        apps.test = {
+          type = "app";
+          program = "${self.packages.${system}.test}/bin/ogc-api-test";
         };
       });
 }

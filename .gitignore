@@ -2,6 +2,9 @@
 venv/
 .venv/
 
+# Generated files
+openapi.json
+
 # Python
 __pycache__/
 *.py[cod]
