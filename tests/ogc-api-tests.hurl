@@ -84,7 +84,7 @@ HTTP/1.1 200
 jsonpath "$.info.title" == "Sample OGC Features API Server"
 jsonpath "$.info.version" exists
 jsonpath "$.paths['/collections']" exists
-jsonpath "$.paths['/collections/{collectionId}/items']" exists
+jsonpath "$.paths['/collections/sample-features/items']" exists
 
 # Test 10: Non-existent Feature Returns 404
 GET http://localhost:5000/collections/sample-features/items/999
