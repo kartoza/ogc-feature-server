@@ -6,7 +6,7 @@ A minimal, production-ready implementation of an **OGC Features API** server usi
 
 ```bash
 # Clone and enter directory
-git clone <your-repo-url>
+git clone https://github.com/kartoza/ogc-feature-server.git
 cd ogc-feature-server
 
 # Start the server (runs on http://localhost:5000)
