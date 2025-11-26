@@ -1,0 +1,87 @@
+server:
+  bind:
+    host: 0.0.0.0
+    port: 5000
+  url: http://localhost:5000
+  mimetype: application/json; charset=UTF-8
+  encoding: utf-8
+  gzip: false
+  languages:
+    - en-US
+  cors: true
+  pretty_print: true
+  limit: 10
+  map:
+    url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+
+logging:
+  level: ERROR
+
+metadata:
+  identification:
+    title:
+      en: Sample OGC Features API Server
+    description:
+      en: A simple pygeoapi server exposing GeoJSON data via OGC API - Features
+    keywords:
+      en:
+        - geospatial
+        - data
+        - api
+        - features
+    keywords_type: theme
+    terms_of_service: https://creativecommons.org/licenses/by/4.0/
+    url: http://example.org
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  provider:
+    name: Sample Organization
+    url: http://example.org
+  contact:
+    name: Sample Contact
+    position: Data Manager
+    address: Mailing Address
+    city: City
+    stateorprovince: Administrative Area
+    postalcode: Zip or Postal Code
+    country: Country
+    phone: +xx-xxx-xxx-xxxx
+    fax: +xx-xxx-xxx-xxxx
+    email: sample@example.org
+    url: Contact URL
+    hours: Mo-Fr 08:00-17:00
+    instructions: During hours of service. Off on weekends.
+    role: pointOfContact
+
+resources:
+  sample-features:
+    type: collection
+    title:
+      en: Sample Features
+    description:
+      en: Sample GeoJSON features for testing
+    keywords:
+      en:
+        - sample
+        - test
+        - geojson
+    links:
+      - type: text/html
+        rel: canonical
+        title: information
+        href: http://example.org/sample-features
+        hreflang: en-US
+    extents:
+      spatial:
+        bbox: [-180, -90, 180, 90]
+        crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      temporal:
+        begin: 2000-10-30T18:24:39Z
+        end: 2007-10-30T08:57:29Z
+    providers:
+      - type: feature
+        name: GeoJSON
+        data: data/sample.geojson
+        id_field: id

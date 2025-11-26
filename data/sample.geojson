@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "Sample Point 1",
+        "description": "This is the first sample point",
+        "category": "test"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.006, 40.7128]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "Sample Point 2",
+        "description": "This is the second sample point",
+        "category": "test"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6298, 41.8781]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "Sample Polygon",
+        "description": "This is a sample polygon area",
+        "category": "area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-74.0, 40.7],
+          [-74.0, 40.8],
+          [-73.9, 40.8],
+          [-73.9, 40.7],
+          [-74.0, 40.7]
+        ]]
+      }
+    }
+  ]
+}

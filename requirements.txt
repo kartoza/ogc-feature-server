@@ -1,0 +1,4 @@
+pygeoapi
+pyyaml
+flask
+gunicorn
