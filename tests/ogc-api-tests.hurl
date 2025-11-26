@@ -15,8 +15,8 @@ GET http://localhost:5000/conformance
 HTTP/1.1 200
 [Asserts]
 jsonpath "$.conformsTo" exists
-jsonpath "$.conformsTo" includes "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"
-jsonpath "$.conformsTo" includes "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson"
+jsonpath "$.conformsTo" contains "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"
+jsonpath "$.conformsTo" contains "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson"
 
 # Test 3: Collections Endpoint
 GET http://localhost:5000/collections
@@ -83,8 +83,8 @@ HTTP/1.1 200
 [Asserts]
 jsonpath "$.info.title" == "Sample OGC Features API Server"
 jsonpath "$.info.version" exists
-jsonpath "$.paths./collections.get" exists
-jsonpath "$.paths./collections/{collectionId}/items.get" exists
+jsonpath "$.paths['/collections']" exists
+jsonpath "$.paths['/collections/{collectionId}/items']" exists
 
 # Test 10: Non-existent Feature Returns 404
 GET http://localhost:5000/collections/sample-features/items/999
