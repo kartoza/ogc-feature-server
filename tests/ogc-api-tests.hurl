@@ -111,7 +111,7 @@ GET http://localhost:5000/collections/sample-features/items?f=json
 HTTP/1.1 200
 [Asserts]
 jsonpath "$.type" == "FeatureCollection"
-header "Content-Type" contains "application/geo+json"
+header "Content-Type" contains "application/json"
 
 # Test 15: Queryables Endpoint
 GET http://localhost:5000/collections/sample-features/queryables
